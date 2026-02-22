@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html>
+<head>
+ <meta charset="UTF-8">
+ <title>Định luật Ohm</title>
+ <link rel="stylesheet" href="style.css">
+</head>
+<body>
+<header>
+ <div class="header-left">
+  <h2>PhysLab</h2>
+   <nav class="header_address_nav">                                         
+    <a href="index.html">Trang chủ</a>
+    <a href="about.html">Giới thiệu</a>
+    <a href="experimental.html">Thí nghiệm</a>
+    <a href="address.html">Liên hệ</a>
+   </nav>
+ </div>
+  <img src="logo.jpg" alt="logo">
+</header>
+<hr>
+<main class="Ohm">
+  <h2>Thí nghiệm: Định luật Ohm</h2>
+  <div>
+    <label for="U">Hiệu điện thế (V)</label>
+    <input id="U" type="number" value="6"/>
+    <label for="R">Điện trở (Ω)</label>
+    <input id="R" type="number" value="2"/>
+    <button onclick="tinhtoan()">Bắt đầu</button>
+  </div>
+  <svg width="400" height="200" class="ohm">
+      <!--Vẽ pin và điện trở-->
+      <rect width="20" height="40" x="40" y="50" fill="white"/>
+      <rect width="40" height="60" x="170" y="40" fill="yellow"/>
+      <rect width="5" height="50" x="70" y="45" fill="white"/>
+      <!--Vẽ dây-->
+      <line x1="60" y1="70" x2="170" y2="70" stroke="black" stroke-width="2"/>
+      <!--Mũi tên dòng điện-->
+      <polygon id="muiten" points="120,95 150,100 120,105" transform="translate(-30,-30)" fill="maroon"/>
+  </svg>
+  <p id="info"></p>
+  <script>
+      let I=0
+      let lasttime=null;
+      let muitenX=0;
+      let muitenV=0;
+      let running=false;
+      const muiten=document.getElementById("muiten");
+    function tinhtoan(){
+      const U=parseFloat(document.getElementById("U").value);
+      const R=parseFloat(document.getElementById("R").value);
+      if(R<=0){
+        alert("Điện trở phải >0");
+        return;
+      }
+      const I=U/R;
+      document.getElementById("info").textContent="Cường độ dòng điện I="+I.toFixed(2)+"A";
+      muitenX=0;
+      muitenV=I*40;
+      running=true;
+      lasttime=null;
+      requestAnimationFrame(chuyendong);
+    }
+    function chuyendong(time){
+      if(!running) return;
+  
+      if(!lasttime) lasttime=time;
+      const dt=(time-lasttime)/1000;
+      lasttime=time;
+      muitenX+=muitenV*dt;
+      muiten.setAttribute("transform",`translate(${muitenX},-30)`);
+      if(muitenX<50){
+      requestAnimationFrame(chuyendong);
+    }
+    else{muitenX=0;
+      muiten.setAttribute("transform",`translate(${muitenX},-30)`);
+      requestAnimationFrame(chuyendong);
+    }
+  }
+  </script>
+   <p class="canhbao">***Mô phỏng trên có thể tồn tại sai số so với thực tế, học sinh chỉ nên xem mô hình với tính chất tham khảo***</p>
+</main>
+</body>
+</html>

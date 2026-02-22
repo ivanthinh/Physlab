@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8">
+  <title>PhysLab – Thí nghiệm (Test)</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+<header>
+  <div class="header-left">
+    <h2>PhysLab</h2>
+    <nav class="header_address_nav">
+      <a href="index.html">Trang chủ</a>
+      <a href="about.html">Giới thiệu</a>
+      <a href="experimental_test.html">Thí nghiệm</a>
+      <a href="address.html">Liên hệ</a>
+    </nav>
+  </div>
+  <img src="logo.jpg" alt="logo">
+</header>
+
+<hr>
+
+<main class="detail">
+
+  <!-- TIÊU ĐỀ TRANG -->
+  <section>
+    <h1>DANH SÁCH THÍ NGHIỆM</h1>
+    <p>
+      Trang này dùng để thử nghiệm giao diện và bố cục các mô phỏng thí nghiệm vật lý.
+    </p>
+  </section>
+
+  <!-- KHỐI THÍ NGHIỆM 1 -->
+  <section class="first_detail">
+    <h3>Thí nghiệm 1: Dao động con lắc đơn</h3>
+    <p>
+      Mô phỏng chuyển động dao động của con lắc đơn, cho phép thay đổi chiều dài dây
+      và quan sát chu kỳ dao động.
+    </p>
+    <a href="#">Bắt đầu mô phỏng</a>
+  </section>
+
+  <!-- KHỐI THÍ NGHIỆM 2 -->
+  <section class="second_detail">
+    <h3>Thí nghiệm 2: Định luật Ohm</h3>
+    <p>
+      Mô phỏng mối quan hệ giữa hiệu điện thế, cường độ dòng điện và điện trở.
+    </p>
+    <a href="#">Bắt đầu mô phỏng</a>
+  </section>
+
+  <!-- KHỐI THÍ NGHIỆM 3 -->
+  <section class="third_detail">
+    <h3>Thí nghiệm 3: Rơi tự do</h3>
+    <p>
+      Mô phỏng chuyển động rơi tự do, giúp học sinh quan sát sự phụ thuộc của quãng đường
+      vào thời gian.
+    </p>
+    <a href="#">Bắt đầu mô phỏng</a>
+  </section>
+
+</main>
+
+</body>
+</html>

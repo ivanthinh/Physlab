@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html>
+<head>
+ <meta charset="UTF-8">
+ <title>Rơi tự do</title>
+ <link rel="stylesheet" href="style.css">
+</head>
+<body>
+<header>
+ <div class="header-left">
+  <h2>PhysLab</h2>
+   <nav class="header_address_nav">                                         
+    <a href="index.html">Trang chủ</a>
+    <a href="about.html">Giới thiệu</a>
+    <a href="experimental.html">Thí nghiệm</a>
+    <a href="address.html">Liên hệ</a>
+   </nav>
+ </div>
+  <img src="logo.jpg" alt="logo">
+</header>
+<hr>
+<main class="ohm">
+  <h2>Thí nghiệm: ĐỊNH LUẬT OHM</h2>
+
+  <!-- Nhập số liệu -->
+  <div class="controls">
+    <label>
+      Hiệu điện thế U (V):
+      <input id="u" type="number" value="6">
+    </label>
+
+    <label>
+      Điện trở R (Ω):
+      <input id="r" type="number" value="3">
+    </label>
+
+    <button onclick="calculate()">Tính</button>
+  </div>
+
+  <!-- Mô phỏng -->
+  <svg width="400" height="200">
+    <!-- pin -->
+    <rect x="40" y="80" width="20" height="40" fill="#555"/>
+    <rect x="65" y="70" width="5" height="60" fill="#555"/>
+
+    <!-- dây -->
+    <line x1="70" y1="100" x2="300" y2="100" stroke="white" stroke-width="2"/>
+
+    <!-- điện trở -->
+    <rect x="170" y="80" width="60" height="40" fill="#f59e0b"/>
+
+    <!-- mũi tên dòng điện -->
+    <polygon id="arrow"
+      points="120,95 150,100 120,105"
+      fill="red"/>
+  </svg>
+
+  <!-- Kết quả -->
+  <p id="info"></p>
+
+  <p class="canhbao">
+    *Mô phỏng có thể tồn tại sai số, chỉ mang tính chất tham khảo.*
+  </p>
+  <script>
+function calculate() {
+  const U = parseFloat(document.getElementById("u").value);
+  const R = parseFloat(document.getElementById("r").value);
+
+  if (R <= 0) {
+    alert("Điện trở phải > 0");
+    return;
+  }
+
+  const I = U / R;
+
+  // hiển thị kết quả
+  document.getElementById("info").textContent =
+    `Cường độ dòng điện I = ${I.toFixed(2)} A`;
+
+  // trực quan hóa dòng điện
+  const arrow = document.getElementById("arrow");
+  const width = Math.min(10 + I * 5, 30); // giới hạn cho đẹp
+  arrow.setAttribute("transform", `scale(${width/10},1)`);
+}
+</script>
+</main>
+</body>
+</html>

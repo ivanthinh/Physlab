@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8">
+  <title>Thí nghiệm rơi tự do (SVG)</title>
+  <style>
+    body {
+      background: #0f172a;
+      color: white;
+      font-family: Arial, sans-serif;
+      text-align: center;
+    }
+
+    input {
+      width: 80px;
+      margin: 4px;
+      padding: 4px;
+    }
+
+    button {
+      padding: 6px 14px;
+      cursor: pointer;
+      margin-top: 8px;
+    }
+
+    svg {
+      background: #020617;
+      border: 1px solid #334155;
+      margin-top: 15px;
+    }
+  </style>
+</head>
+<body>
+
+<h2>Thí nghiệm: Rơi tự do (SVG)</h2>
+
+<div>
+  <label>h₀ (m):
+    <input id="h0" type="number" value="5">
+  </label>
+  <label>v₀ (m/s):
+    <input id="v0" type="number" value="0">
+  </label>
+  <label>g (m/s²):
+    <input id="g" type="number" value="9.8">
+  </label>
+  <br>
+  <button onclick="start()">Bắt đầu</button>
+</div>
+
+<svg id="scene" width="400" height="500">
+  <!-- mặt đất -->
+  <rect x="0" y="480" width="400" height="20" fill="#475569"/>
+  <rect x="0" y="0" width="100%" height="100%" fill="cyan"/>
+  <!-- vật -->
+  <circle id="ball" cx="200" cy="100" r="10" fill="#38bdf8"/>
+</svg>
+<p id="info"></p>
+
+<script>
+  const ball = document.getElementById("ball");
+  const info = document.getElementById("info");
+
+  const scale = 50; // 1m = 50px
+  const groundY = 480;
+
+  let h, v, g;
+  let lastTime = null;
+  let t = 0;
+  let running = false;
+
+  function start() {
+    h = parseFloat(document.getElementById("h0").value);
+    v = parseFloat(document.getElementById("v0").value);
+    g = parseFloat(document.getElementById("g").value);
+
+    t = 0;
+    lastTime = null;
+    running = true;
+
+    requestAnimationFrame(update);
+  }
+
+  function update(time) {
+    if (!running) return;
+
+    if (!lastTime) lastTime = time;
+    const dt = (time - lastTime) / 1000;
+    lastTime = time;
+
+    // vật lý
+    v += g * dt;
+    h -= v * dt;
+    t += dt;
+
+    // vẽ
+    const y = groundY - h * scale;
+    ball.setAttribute("cy", y);
+
+    info.innerHTML =
+      `Thời gian: ${t.toFixed(2)} s | ` +
+      `Độ cao: ${Math.max(h, 0).toFixed(2)} m | ` +
+      `Vận tốc: ${v.toFixed(2)} m/s`;
+
+    if (h > 0) {
+      requestAnimationFrame(update);
+    } else {
+      running = false;
+    }
+  }
+</script>
+
+</body>
+</html>

@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html>
+<head>
+ <meta charset="UTF-8">
+ <title>Rơi tự do</title>
+ <link rel="stylesheet" href="style.css">
+</head>
+<body>
+<header>
+ <div class="header-left">
+  <h2>PhysLab</h2>
+   <nav class="header_address_nav">                                         
+    <a href="index.html">Trang chủ</a>
+    <a href="about.html">Giới thiệu</a>
+    <a href="experimental.html">Thí nghiệm</a>
+    <a href="address.html">Liên hệ</a>
+   </nav>
+ </div>
+  <img src="logo.jpg" alt="logo">
+</header>
+<hr>
+<main class="free_fall">
+    <h2>Thí nghiệm: RƠI TỰ DO</h2>
+    <div>
+        <label for="h0">Chiều cao ban đầu</label>
+        <input id="h0" type="number" value="5">
+        <label for="v0">Tốc độ ban đầu</label>
+        <input id="v0" type="number" value="0">
+        <label for="g">Gia tốc trọng trường</label>
+        <input id="g" type="number" value="9.8">
+        <br>
+        <button onclick="start()">Bắt đầu</button>
+        <button onclick="stop()">Tạm dừng</button>
+        <button onclick="resume()">Tiếp tục</button>
+        <button onclick="reset()">Reset</button>
+    </div>
+    <svg id="scene" width="400" height="600" class="roitudo" viewBox="0 0 400 600">
+        <!--Vẽ mặt đất-->
+        <rect x="0" y="490" width="480" height="100" fill="#0F5132"/>
+        <rect x="0" y="560" width="480" height="700" fill="#4c3228"/>
+        <!--Vẽ banh-->
+        <ellipse id="ball" cx="200" cy="100" rx="10" ry="20" stroke-width="2" fill="#E78F50" stroke="#black"/>
+    </svg>
+    <p id="thongtin"></p>
+    <script>
+        const ball=document.getElementById("ball");
+        const thongtin=document.getElementById("thongtin");
+        const scale=50;
+        const groundY=480;
+        let lasttime=null;
+        let h,v,g;
+        let t=0;
+        let running=false;
+        function start(){
+            h=parseFloat(document.getElementById("h0").value);
+            g=parseFloat(document.getElementById("g").value);
+            v=parseFloat(document.getElementById("v0").value);
+            t=0;
+            lasttime=null;
+            running=true;
+            requestAnimationFrame(update);
+        }
+        function stop(){
+            running=false;
+        }
+        function resume(){
+            if(!running && h>0){
+                running=true;
+                lasttime=null;
+                requestAnimationFrame(update);
+            }
+        }
+        function reset(){
+            running=false;
+            t=0;
+            h=parseFloat(document.getElementById("h0").value);
+            v=parseFloat(document.getElementById("v0").value);
+            const y=groundY-h*scale;
+            ball.setAttribute("cy",y);
+            thongtin.innerHTML="";
+            requestAnimationFrame(update);
+        }
+        function update(time){
+            if(!running) return;
+            if(!lasttime) lasttime=time;
+            const deltat=(time-lasttime)/1000;
+            lasttime=time;
+        /*Công thức vật lý*/ 
+        v+=g*deltat;
+        h-=v*deltat;
+        t+=deltat;
+        /*Thay đổi vị trí ball*/
+        const scene=document.getElementById("scene");
+        const chatdiem=groundY-h*scale;
+        ball.setAttribute("cy",chatdiem);
+        const viewheight=600;
+        let cameraY=chatdiem-viewheight/2;
+        scene.setAttribute(
+          "viewBox",`0 ${cameraY} 400 ${viewheight}`
+        );
+        const y=groundY-h*scale;
+        ball.setAttribute("cy",y);
+        thongtin.innerHTML='Thời gian:'+t.toFixed(2)+" s | "+ "Độ cao:"+Math.max(h,0)+" m | "+"Vận tốc:"+v.toFixed(2)+"m/s";
+        if (h>0){
+            requestAnimationFrame(update);
+        }
+        else{
+            running=false;
+        }
+    }
+    </script>
+    <p class="canhbao">***Mô phỏng trên có thể tồn tại sai số so với thực tế, học sinh chỉ nên xem mô hình với tính chất tham khảo***</p>
+</main>
+</body>
+</html>
