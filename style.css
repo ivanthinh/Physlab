@@ -1,5 +1,5 @@
 body {
- background-color:beige;
+ background-color:white;
  font-family:arial, sans-serif;
 }
 header {
@@ -40,7 +40,7 @@ header img {
  color: #247ba0;
 }
 .home {
- background-color:beige;
+ background-color:white;
  display: flex;
  justify-content: center;
 }
@@ -208,7 +208,7 @@ button:hover{
     display:inline-block;
 }
 .main_lienhe a:hover{
-    background-color:beige;
+    background-color:white;
     color: black;   
 }
 .lienhe{
