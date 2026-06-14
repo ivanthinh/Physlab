@@ -44,6 +44,7 @@
         v+=g*deltat;
         h-=v*deltat;
         t+=deltat;
+        if(h<0) h=0;
         /*Thay đổi vị trí ball*/
         const scene=document.getElementById("scene");
         const chatdiem=groundY-h*scale;
