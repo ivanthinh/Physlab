@@ -55,7 +55,7 @@
         );
         const y=groundY-h*scale;
         ball.setAttribute("cy",y);
-        thongtin.innerHTML='Thời gian:'+t.toFixed(2)+" s | "+ "Độ cao:"+Math.max(h,0)+" m | "+"Vận tốc:"+v.toFixed(2)+"m/s";
+        thongtin.innerHTML='Thời gian:'+t.toFixed(2)+" s | "+ "Độ cao:"+Math.max(h,0).toFixed(2)+" m | "+"Vận tốc:"+v.toFixed(2)+"m/s";
         if (h>0){
             requestAnimationFrame(update);
         }
