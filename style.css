@@ -245,3 +245,105 @@ button:hover{
     display: flex;
 
 }
+.controls{
+    display: flex;
+    flex-wrap: wrap;
+    gap: 15px;
+    align-items: flex-end;
+    margin-bottom: 20px;
+}
+.input-controls {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+    flex: 1;
+    min-width: 120px;
+}
+.input-controls label {
+    font-weight: bold;
+    font-size: 0.9rem;
+    color: #333;
+}
+.input-controls input {
+    padding: 6px;
+    font-size: 0.85rem;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    transition: border-color 0.2s;
+}
+.input-controls input:focus {
+    border-color: #247ba0;
+    outline: none;
+}
+.button-groups {
+    display: flex;
+    gap: 8px;
+    flex-wrap: wrap;
+    width: 100%;
+    margin-top: 10px;
+    justify-content: center;
+}
+.button-groups button {
+    padding: 8px 15px;
+    font-size: 0.85rem;
+    cursor: pointer;
+    background-color: #f0f0f0;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    transition: all 0.2s;
+}
+.button-groups button:hover {
+    color: #e0e0e0;
+    transform: translateY(-1px);
+}
+.button-groups button:active {
+    transform: translateY(0);
+}
+/* tren dth*/
+@media (max-width: 600px){
+    .controls{    
+    flex-direction: column;
+    align-items: stretch;
+    gap: 10px;
+    }
+    .input-controls {
+        width: 100%;
+        min-width: unset;
+    }
+    .input-controls label{
+        font-size: 0.8rem;
+    }
+    .input-controls input {
+        font-size: 0.75rem;
+        padding: 8px;
+    }
+    .button-groups {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 10px;
+        margin-top: 5px;
+    }
+    .button-groups button {
+        padding: 10px 8px;
+        font-size: 0.8rem;
+    }
+    svg#scene{
+        width: 100%;
+        height: auto;
+        max-width: 100%;
+    }
+}
+/*cho man hinh sieu nho*/
+@media (max-width: 400px){
+    .button-groups{
+        gap: 6px;
+    }
+    .button-groups button {
+        padding: 8px 6px;
+        font-size: 0.75rem;
+    }
+    .controls {
+        gap: 8px;
+    }
+}
+
