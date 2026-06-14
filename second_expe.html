@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+<head>
+ <meta charset="UTF-8">
+ <title>Định luật Ohm</title>
+ <link rel="stylesheet" href="style.css">
+ <script src="ohm.js" defer></script>
+</head>
+<body>
+<header>
+ <div class="header-left">
+  <h2>PhysLab</h2>
+   <nav class="header_address_nav">                                         
+    <a href="index.html">Trang chủ</a>
+    <a href="about.html">Giới thiệu</a>
+    <a href="experimental.html">Thí nghiệm</a>
+    <a href="address.html">Liên hệ</a>
+   </nav>
+ </div>
+  <img src="logo.jpg" alt="logo">
+</header>
+<hr>
+<main class="Ohm">
+  <h2>Thí nghiệm: Định luật Ohm</h2>
+  <div>
+    <label for="U">Hiệu điện thế (V)</label>
+    <input id="U" type="number" value="6"/>
+    <label for="R">Điện trở (Ω)</label>
+    <input id="R" type="number" value="2"/>
+    <button onclick="tinhtoan()">Bắt đầu</button>
+  </div>
+  <svg width="400" height="200" class="ohm">
+      <!--Vẽ pin và điện trở-->
+      <rect width="20" height="40" x="40" y="50" fill="white"/>
+      <rect width="40" height="60" x="170" y="40" fill="yellow"/>
+      <rect width="5" height="50" x="70" y="45" fill="white"/>
+      <!--Vẽ dây-->
+      <line x1="60" y1="70" x2="170" y2="70" stroke="black" stroke-width="2"/>
+      <!--Mũi tên dòng điện-->
+      <polygon id="muiten" points="120,95 150,100 120,105" transform="translate(-30,-30)" fill="maroon"/>
+  </svg>
+  <p id="info"></p>
+   <p class="canhbao">***Mô phỏng trên có thể tồn tại sai số so với thực tế, học sinh chỉ nên xem mô hình với tính chất tham khảo***</p>
+</main>
+</body>
+</html>

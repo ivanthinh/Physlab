@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+<head>
+ <meta charset="UTF-8">
+ <title>PhysLab</title>
+ <link rel="stylesheet" href="style.css">
+ <script src="anhsang.js" defer></script>
+</head>
+<body>
+<header>
+ <div class="header-left">
+  <h2>PhysLab</h2>
+   <nav class="header_address_nav">                                         
+    <a href="index.html">Trang chủ</a>
+    <a href="about.html">Giới thiệu</a>
+    <a href="experimental.html">Thí nghiệm</a>
+    <a href="address.html">Liên hệ</a>
+   </nav>
+ </div>
+  <img src="logo.jpg" alt="logo">
+</header>
+<main class="anhsang">
+  <h2>Thí nghiệm 3: Khúc xạ ánh sáng</h2>
+  <div> 
+    <label for="n1">Chiết suất môi trường 1</label>
+    <input id="n1" type="range" min="1" max="2.5" step="0.01" value="1.00">
+    <span id="val_n1">1.00</span>
+    <br>
+
+    <label for="n2">Chiết suất môi trường 2</label>
+    <input id="n2" type="range" min="1" max="2.5" step="0.01" value="1.33">
+    <span id="val_n2">1.33</span>
+    <br>
+
+    <label for="goctoi">Góc tới</label>
+    <input id="goctoi" type="range" min="0" max="90" step="1" value="45">
+    <span id="val_goctoi">45°</span>
+  </div>
+   <canvas id="opticscanvas" width="300" height="600" style="border: 1px solid #ccc; background: #f9f9f9;"></canvas>
+   <p id="ketqua"></p>
+</main>
+<hr>
+</body>
+</html>
