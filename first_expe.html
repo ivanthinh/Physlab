@@ -22,18 +22,26 @@
 <hr>
 <main class="free_fall">
     <h2>Thí nghiệm: RƠI TỰ DO</h2>
-    <div>
-        <label for="h0">Chiều cao ban đầu</label>
-        <input id="h0" type="number" value="7.75">
-        <label for="v0">Tốc độ ban đầu</label>
-        <input id="v0" type="number" value="0">
-        <label for="g">Gia tốc trọng trường</label>
-        <input id="g" type="number" value="9.8">
+    <div class="controls">
+	<div class="input-controls">
+        	<label for="h0">Chiều cao ban đầu</label>
+        	<input id="h0" type="number" value="7.75">
+	</div>
+	<div class="input-controls">
+        	<label for="v0">Tốc độ ban đầu</label>
+        	<input id="v0" type="number" value="0">
+	</div>
+	<div class="input-controls">
+        	<label for="g">Gia tốc trọng trường</label>
+        	<input id="g" type="number" value="9.8">
+	</div>
         <br>
-        <button onclick="start()">Bắt đầu</button>
-        <button onclick="stop()">Tạm dừng</button>
-        <button onclick="resume()">Tiếp tục</button>
-        <button onclick="reset()">Reset</button>
+	<div class="button-groups">
+        	<button onclick="start()">Bắt đầu</button>
+        	<button onclick="stop()">Tạm dừng</button>
+        	<button onclick="resume()">Tiếp tục</button>
+        	<button onclick="reset()">Reset</button>
+	</div>
     </div>
     <svg id="scene" width="300" height="500" class="roitudo" viewBox="0 0 400 600">
         <!--Vẽ mặt đất-->
