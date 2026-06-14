@@ -220,3 +220,16 @@ button:hover{
 .anhsang{
     text-align: center;
 }
+.anhsang h4{
+    text-align: left;
+    font-size: 25px;
+}
+.anhsang h5{
+    text-align: left;
+    font-size: 20px;
+}
+.giaithich {
+    font-style: italic;
+    font-weight: bold;
+    text-align:justify;
+}
