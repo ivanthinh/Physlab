@@ -7,12 +7,13 @@
         let t=0;
         let running=false;
         function vachmoc(){
-                const h0=parseFloat(document.getElementById("h0").value);
-                const ybandau=groundY-h0*scale;
-                const linedocao=document.getElementById("linedocao");
-                const docao=document.getElementById("docao");
-                docao.setAttribute("y",ybandau-10);
-                docao.textContent=h0+" m";
+            const h0=parseFloat(document.getElementById("h0").value);
+            const ybandau=groundY-h0*scale;
+            const linedocao=document.getElementById("linedocao");
+            const docao=document.getElementById("docao");
+            docao.setAttribute("y",ybandau-10);
+            docao.textContent=h0+" m";
+        }
         function start(){
             h=parseFloat(document.getElementById("h0").value);
             g=parseFloat(document.getElementById("g").value);
@@ -20,7 +21,7 @@
             t=0;
             lasttime=null;
             running=true;
-                vachmoc();
+            vachmoc();
             requestAnimationFrame(update);
         }
         function stop(){
@@ -40,7 +41,7 @@
             v=parseFloat(document.getElementById("v0").value);
             const y=groundY-h*scale;
             ball.setAttribute("cy",y);
-                vachmoc();
+            vachmoc();
             thongtin.innerHTML="";
             requestAnimationFrame(update);
         }
@@ -73,4 +74,5 @@
             running=false;
         }
     }
-        vachmoc();
+    vachmoc();
+    
