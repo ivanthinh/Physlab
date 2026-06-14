@@ -26,12 +26,12 @@ let I=0
       const dt=(time-lasttime)/1000;
       lasttime=time;
       muitenX+=muitenV*dt;
-      muiten.setAttribute("transform",`translate(${muitenX},-30)`);
+      muiten.setAttribute("transform",`translate(${muitenX},0)`);
       if(muitenX<50){
       requestAnimationFrame(chuyendong);
     }
     else{muitenX=0;
-      muiten.setAttribute("transform",`translate(${muitenX},-30)`);
+      muiten.setAttribute("transform",`translate(${muitenX},0)`);
       requestAnimationFrame(chuyendong);
     }
   }
