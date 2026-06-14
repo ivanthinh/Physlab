@@ -11,6 +11,8 @@
             const ybandau=groundY-h0*scale;
             const linedocao=document.getElementById("linedocao");
             const docao=document.getElementById("docao");
+            linedocao.setAttribute("y1",ybandau);
+            linedocao.setAttribute("y2",ybandau);
             docao.setAttribute("y",ybandau-10);
             docao.textContent=h0+" m";
         }
