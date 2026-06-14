@@ -22,12 +22,18 @@
 <hr>
 <main class="Ohm">
   <h2>Thí nghiệm: Định luật Ohm</h2>
-  <div>
-    <label for="U">Hiệu điện thế (V)</label>
-    <input id="U" type="number" value="6"/>
-    <label for="R">Điện trở (Ω)</label>
-    <input id="R" type="number" value="2"/>
-    <button onclick="tinhtoan()">Bắt đầu</button>
+  <div class="controls">
+	<div class="input-controls">
+    		<label for="U">Hiệu điện thế (V)</label>
+    		<input id="U" type="number" value="6"/>
+	</div>
+	<div class="input-controls">
+    		<label for="R">Điện trở (Ω)</label>
+    		<input id="R" type="number" value="2"/>
+	</div>
+	<div class="button-groups">
+    		<button onclick="tinhtoan()">Bắt đầu</button>
+	</div>
   </div>
   <svg width="400" height="200" class="ohm">
       <!--Vẽ pin và điện trở-->
