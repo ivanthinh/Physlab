@@ -21,7 +21,7 @@
 </header>
 <main class="anhsang">
   <h2>Thí nghiệm 3: Khúc xạ ánh sáng</h2>
-  <div> 
+  <div class="control"> 
     <label for="n1">Chiết suất môi trường 1</label>
     <input id="n1" type="range" min="1" max="2.5" step="0.01" value="1.00">
     <span id="val_n1">1.00</span>
@@ -39,7 +39,35 @@
    <canvas id="opticscanvas" width="300" height="600" style="border: 1px solid #ccc; background: #f9f9f9;"></canvas>
    <p id="ketqua"></p>
    <hr>
- <h3>Khái niệm:</h3>
+   <div class="giaithich">
+   	<h4>Khái niệm:</h4>
+   	<p>Hiện tượng tia sáng truyền từ môi trường trong suốt này sang môi trường trong suốt khác bị gãy khúc tại mặt phân cách giữa hai môi trường được gọi là hiện tượng khúc xạ ánh sáng. Hiện tượng này xảy ra do vận tốc truyền ánh sáng trong các môi trường khác nhau là khác nhau. Chiết suất (n) của một môi trường càng lớn thì ánh sáng truyền trong đó càng chậm. Khi tia sáng đi xiên góc qua mặt phân cách, sự thay đổi vận tốc đột ngột khiến hướng đi của tia sáng bị bẻ cong.</p>
+    <h4>Nguyên tắc</h4>
+    <h5>Định luật Snell</h5>
+    <p>Định luật Snell mô tả mối quan hệ giữa góc tới (i), góc khúc xạ (r), và chiết suất của hai môi trường (n1 và n2). Công thức được biểu diễn như sau:</p>
+    <p><strong>n1 * sin(i) = n2 * sin(r)</strong></p>
+    <p>Trong đó:</p>
+    <ul>
+    	<li><strong>n1</strong>: Chiết suất của môi trường đầu tiên (nơi tia sáng bắt đầu truyền)</li>
+    	<li><strong>n2</strong>: Chiết suất của môi trường thứ hai (nơi tia sáng đi vào)</li>
+    	<li><strong>i</strong>: Góc tới, là góc giữa tia sáng tới và pháp tuyến tại điểm tới</li>
+    	<li><strong>r</strong>: Góc khúc xạ, là góc giữa tia sáng khúc xạ và pháp tuyến tại điểm tới</li>
+    <h5>Hiện tượng phản xạ toàn phần</h5>
+    <p>Khi tia sáng đi từ môi trường có chiết suất lớn hơn sang môi trường có chiết suất nhỏ hơn, nếu góc tới vượt quá một giá trị nhất định gọi là góc giới hạn, tia sáng sẽ không khúc xạ vào môi trường thứ hai mà bị phản xạ hoàn toàn trở lại môi trường đầu tiên. Góc giới hạn (θc) được tính bằng công thức:</p>
+    <p><strong>θc = arcsin(n2/n1)</strong></p>
+    <p>Trong đó:</p>
+    <ul>
+      <li><strong>n1</strong>: Chiết suất của môi trường đầu tiên (nơi tia sáng bắt đầu truyền)</li>
+      <li><strong>n2</strong>: Chiết suất của môi trường thứ hai (nơi tia sáng đi vào)</li>
+    </ul>
+    <h4>Ứng dụng:</h4>
+    <p>Hiện tượng khúc xạ ánh sáng có nhiều ứng dụng trong cuộc sống và khoa học, bao gồm:</p>
+    <ul>
+      <li>Thấu kính: Dùng để tạo ảnh trong các thiết bị quang học như kính lúp, máy ảnh, kính hiển vi...</li>
+      <li>Đường ống dẫn sáng: Dùng trong các thiết bị y tế và công nghiệp để truyền ánh sáng.</li>
+      <li>Quang phổ kế: Dùng để phân tích thành phần ánh sáng.</li>
+    </ul>
+  </div>
 </main>
 </body>
 </html>
